@@ -1,1 +1,1 @@
-# achirsh-webpack-react
+# BXG Admin Web
