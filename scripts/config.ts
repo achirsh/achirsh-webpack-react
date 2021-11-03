@@ -13,7 +13,7 @@ export default function config(config?: Configuration): Configuration {
         output: {
             clean: true,
             filename: "js/[name].js",
-            path: resolvePath(process.cwd(), "./build"),
+            path: resolvePath(process.cwd(), "./dist"),
             publicPath: process.env.PUBLIC_PATH || "/",
         },
         resolve: {
@@ -47,6 +47,13 @@ export default function config(config?: Configuration): Configuration {
                         },
                     }],
                     exclude: /node_modules/,
+                },
+                {
+                    test: /\.css$/i,
+                    use: [
+                        { loader: config?.mode === "development" ? "style-loader" : CSSExtractPlugin.loader },
+                        { loader: "css-loader" },
+                    ]
                 },
                 {
                     test: /\.s[ac]ss$/i,
@@ -89,6 +96,61 @@ export default function config(config?: Configuration): Configuration {
                             }
                         },
                         { loader: "sass-loader" },
+                    ],
+                },
+                {
+                    test: /\.less$/i,
+                    use: [
+                        { loader: config?.mode === "development" ? "style-loader" : CSSExtractPlugin.loader },
+                        { loader: "css-loader" },
+                        {
+                            loader: "postcss-loader", options: {
+                                postcssOptions: {
+                                    plugins: [
+                                        [
+                                            "postcss-preset-env"
+                                        ],
+                                    ],
+                                },
+                            }
+                        },
+                        {
+                            loader: "less-loader", options: {
+                                lessOptions: {
+                                    javascriptEnabled: true,
+                                },
+                            }
+                        },
+                    ],
+                    exclude: /\.module\.less$/,
+                },
+                {
+                    test: /\.module\.less$/i,
+                    use: [
+                        { loader: "style-loader" },
+                        {
+                            loader: "css-loader", options: {
+                                modules: true
+                            },
+                        },
+                        {
+                            loader: "postcss-loader", options: {
+                                postcssOptions: {
+                                    plugins: [
+                                        [
+                                            "postcss-preset-env"
+                                        ],
+                                    ],
+                                },
+                            }
+                        },
+                        {
+                            loader: "less-loader", options: {
+                                lessOptions: {
+                                    javascriptEnabled: true,
+                                },
+                            }
+                        },
                     ],
                 },
                 {

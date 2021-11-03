@@ -29,9 +29,9 @@ express()
     .use(fallback({ index: `${publicPath}index.html` }))
     .use(devMiddleware(compiler, { publicPath }))
     .use(hotMiddleware(compiler))
-    .listen(8000, () => {
-        console.info("Listening on :8000");
+    .listen(3000, () => {
+        console.info("Listening on :3000");
         if (argv.open) {
-            open(`http://localhost:8000${publicPath}`, { app: argv.open === true ? null : argv.open });
+            open(`http://localhost:3000${publicPath}`, { app: argv.open === true ? null : argv.open });
         }
     });
