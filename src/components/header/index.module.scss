@@ -1,0 +1,54 @@
+.site-layout-background {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    // position: relative;
+    width: 100%;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+
+    .right-content {
+        position: absolute;
+        top: 0;
+        right: 40px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .action {
+            display: flex;
+            align-items: center;
+        }
+
+        .account {
+            .avatar {
+                width: 36px;
+                height: 36px;
+                vertical-align: top;
+                font-size: 24px;
+                background: rgba(255, 255, 255, 0.85);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .name {
+                margin-right: 5px;
+            }
+        }
+
+        .full {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+.menu {
+    :global(.anticon) {
+        margin-right: 8px;
+    }
+    :global(.ant-dropdown-menu-item) {
+        min-width: 140px;
+    }
+}

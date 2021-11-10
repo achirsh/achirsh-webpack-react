@@ -9,11 +9,11 @@ export default function config(config?: Configuration): Configuration {
     return merge({
         mode: "production",
         devtool: "source-map",
-        entry: ["./pages/_root.tsx"],
+        entry: ["./src/_root.tsx"],
         output: {
             clean: true,
             filename: "js/[name].js",
-            path: resolvePath(process.cwd(), "./build"),
+            path: resolvePath(process.cwd(), "./dist"),
             publicPath: process.env.PUBLIC_PATH || "/",
         },
         resolve: {

@@ -29,9 +29,9 @@ express()
     .use(fallback({ index: `${publicPath}index.html` }))
     .use(devMiddleware(compiler, { publicPath }))
     .use(hotMiddleware(compiler))
-    .listen(8000, () => {
-        console.info("Listening on :8000");
+    .listen(8080, () => {
+        console.info("Listening on :8080");
         if (argv.open) {
-            open(`http://localhost:8000${publicPath}`, { app: argv.open === true ? null : argv.open });
+            open(`http://localhost:8080${publicPath}`, { app: argv.open === true ? null : argv.open });
         }
     });

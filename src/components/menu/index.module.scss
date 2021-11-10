@@ -1,0 +1,16 @@
+.logo {
+    height: 32px;
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    img {
+        height: 100%;
+    }
+    span {
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 5px;
+        white-space: nowrap;
+    }
+}
