@@ -13,7 +13,7 @@ export default function config(config?: Configuration): Configuration {
         output: {
             clean: true,
             filename: "js/[name].js",
-            path: resolvePath(process.cwd(), "./dist"),
+            path: resolvePath(process.cwd(), "./build"),
             publicPath: process.env.PUBLIC_PATH || "/",
         },
         resolve: {
