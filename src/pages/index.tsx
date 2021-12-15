@@ -22,8 +22,10 @@ export default function Index(): JSX.Element {
         // 获取用户菜单，权限等
         (async () => {
             try {
-                const authResponse: UserAuthResponse = await authInit()
-                const userInfo: UserInfo = await authResponse.loadUserInfo();
+                // const authResponse: UserAuthResponse = await authInit()
+                // const userInfo: UserInfo = await authResponse.loadUserInfo();
+                const authResponse = 1
+                const userInfo = null
                 setAccount(userInfo)
                 setAuthResponse(authResponse)
                 setRAToken(retriveAccessToken)
